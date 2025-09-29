@@ -1,15 +1,22 @@
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    # Precisamos evitar imports circulares
+    from playlist import Playlist
+    from arquivo_de_midia import ArquivoDeMidia
+
 class Usuario:
     """ 
     Classe de usuarios.
 
-    nome: Nome do usuario, identificador. @String
-    playlists: Identificador do objeto playlists. @String
-    historico: Musicas reproduzidas pelo usuario. @String 
+    nome:str: Nome do usuario, identificador. 
+    playlists:Playlist: Identificador do objeto playlists. @String
+    historico:list[Musica]: Musicas reproduzidas pelo usuario. 
     """
     qntd_instancias = 0
     nomes = []
 
-    def __init__(self, nome, playlists=None, historico=None):
+    def __init__(self, nome:str, playlists:list['Playlist']=None, historico:list['ArquivoDeMidia.titulo']=None):
         """ Inicializador da classe """
         self.nome = nome
         self.playlists = playlists if playlists is not None else []

@@ -80,7 +80,8 @@ def menu_inicial():
                 case "3":
                     Usuario.lista_nomes()
                 case "4":
-                    break
+                    print("Obrigado por utilizar nosso serviço!")
+                    return
                 case _:
                     print(f"Escolha desconhecida: {escolha}")
                     pass
@@ -104,11 +105,14 @@ def logado():
         print("8) Gerar relatório")
         print("9) Sair")
         escolha = input()
-        if not escolha in "1 2 3 4".split():
-            print("Por favor, digite um numero entre 1 a 4")
-            pass
-        if escolha == "4":
-            menu_inicial()
+
+        match escolha:
+            case "9":
+                menu_inicial()
+            case _:
+                print(f"Escolha desconhecida: {escolha}")
+                pass
+
 
 
 
