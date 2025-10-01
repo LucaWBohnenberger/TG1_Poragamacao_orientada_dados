@@ -1,12 +1,13 @@
 from Streaming.usuario import Usuario
 
 usuarios = []
-
+playlists = []
 
 nome = ""
 lista1 = []
 
 
+# Need to read and store an array for playlists, musicas and podcasts
 with open("config/dados.md", encoding="utf-8") as f:
     nome = ""
     lista1 = []
@@ -34,6 +35,7 @@ with open("config/dados.md", encoding="utf-8") as f:
 def log_error(log):
     with open("log.txt", "a") as file:
         file.write(str(log) + "\n")
+    
 
 def menu_inicial():
     while(True):
@@ -60,7 +62,8 @@ def menu_inicial():
                         tentativa_login = Usuario.usuario_existente(nome_login)
                         if(tentativa_login):
                             print("Usuário válido, bem vindo")
-                            logado()
+                            logado(tentativa_nome)
+                            break
                         else:
                             print("Usuário inválido!")
                             raise ValueError("Nome não existente na base de dados")
@@ -77,6 +80,7 @@ def menu_inicial():
                         print("Usuário criado")
                     else:
                         print("Usuário inválido!")
+                        raise ValueError("Usuário já existente na base de dados!")
                 case "3":
                     Usuario.lista_nomes()
                 case "4":
@@ -92,7 +96,7 @@ def menu_inicial():
 
 
 
-def logado():
+def logado(nome):
     while(True):
         print("\n----------Menu----------")
         print("1) Reproduzir uma música")
@@ -107,8 +111,10 @@ def logado():
         escolha = input()
 
         match escolha:
+            case "3":
+                break
             case "9":
-                menu_inicial()
+                return
             case _:
                 print(f"Escolha desconhecida: {escolha}")
                 pass

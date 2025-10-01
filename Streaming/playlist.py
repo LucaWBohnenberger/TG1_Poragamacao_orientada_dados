@@ -1,5 +1,5 @@
 from arquivo_de_midia import ArquivoDeMidia
-from usuario import UsuarioClass
+from usuario import Usuario
 
 
 class Playlist:
@@ -14,7 +14,7 @@ class Playlist:
     qntd_instancias = 0
     nomes = []
 
-    def __init__(self, nome:str, usuario:UsuarioClass, itens:list[ArquivoDeMidia], reproducoes:int=0):
+    def __init__(self, nome:str, usuario:Usuario, itens:list[ArquivoDeMidia], reproducoes:int=0):
         """ Inicializador da classe """
         self.nome = nome
         self.usuario = usuario if usuario is not None else []
@@ -60,5 +60,5 @@ class Playlist:
         cls.itens.remove(midia)
 
     @classmethod
-    def remover_midia(cls):
+    def ouvir_playlist(cls):
         cls.reproducoes += 1 

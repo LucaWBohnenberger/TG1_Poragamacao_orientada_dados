@@ -25,7 +25,7 @@ class Usuario:
         Usuario.nomes.append(self.nome) # append para poder guardar nomes, usado em alguns metodos
 
     def __str__(self):
-        return f"Nome: {self.nome} \nPlaylists: {self.playlists} \nHistórico: {self.historico}"
+        return f"Nome: {self.nome} \nPlaylists: {self.playlists} \nHistórico: {self.historico}\nPlaylists: {self.playlists}"
         
 
 
@@ -49,6 +49,31 @@ class Usuario:
         if(nome in cls.nomes):
             return True
         return False
+    
+        
+    @classmethod
+    def criar_playlist(cls, nome):
+        """ Adiciona uma playlist nova na conta do usuário """
+        if(nome in cls.playlist.nomes):
+            print("Uma playlist com esse nome já existe na sua conta!")
+            print("Gostaria de adicionar musicas nessa playlist?\n S|N")
+            escolha = input()
+            match escolha:
+                case "S":
+                    pass
+                case "N":
+                    return
+                case _:
+                    print("Valor inválido")
+                    raise ValueError("criar_playlist: Valor de input não reconhecido")
+
+        midias = []
+        while(True):
+            print("Digite o nome da mídia que gostaria de adicionar na playlist:")
+            midias.append()
+        # TO-DO: When we have the musicas and podcasts lists we can send them as a parameter
+        # and make the comparisons here, until then we are stuck
+        cls.playlists.append(Playlist(nome, cls, ))
 
         
 

@@ -11,6 +11,7 @@ class ArquivoDeMidia(ABC):
         
     @abstractmethod
     def reproduzir(self):
+        self.reproducoes +=1
         pass
     
     def __eq__(self, other):
