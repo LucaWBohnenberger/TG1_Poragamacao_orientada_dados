@@ -2,6 +2,8 @@ from Streaming.usuario import Usuario
 
 usuarios = []
 playlists = []
+podcasts = []
+musicas = []
 
 nome = ""
 lista1 = []
@@ -30,6 +32,19 @@ with open("config/dados.md", encoding="utf-8") as f:
                 conteudo = conteudo.strip("[]")
                 lista1 = [p.strip() for p in conteudo.split(",") if p.strip()]
                 usuarios.append(Usuario(nome=nome, playlists=lista1))
+        
+        if tipo == "Músicas":
+            if arr[0] == "-" and arr[1] == "titulo:":
+                pass
+            pass
+        if tipo == "Podcasts":
+            if arr[0] == "-" and arr[1] == "titulo:":
+                pass
+            pass
+        if tipo == "Playlists":
+            if arr[0] == "-" and arr[1] == "nome:":
+                pass
+            pass
 
 
 def log_error(log):
