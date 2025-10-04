@@ -1,5 +1,7 @@
 from Streaming.usuario import Usuario
-
+from Streaming.musica import Musica
+from Streaming.playlist import Playlist
+from Streaming.podcast import Podcast
 usuarios = []
 playlists = []
 podcasts = []
@@ -35,16 +37,39 @@ with open("config/dados.md", encoding="utf-8") as f:
         
         if tipo == "Músicas":
             if arr[0] == "-" and arr[1] == "titulo:":
-                pass
+                titulo = " ".join(arr[2:])
+            elif arr[0] == "artista:":
+                artista = " ".join(arr[1:])
+            elif arr[0] == "genero:":
+                genero = " ".join(arr[1:])
+            elif arr[0] == "duracao:":
+                duracao = int(arr[1])
+                musicas.append(Musica(titulo=titulo, artista=artista, genero=genero, duracao=duracao))
             pass
-        if tipo == "Podcasts":
+        elif tipo == "Podcasts":
             if arr[0] == "-" and arr[1] == "titulo:":
-                pass
+                titulo = " ".join(arr[2:])
+            elif arr[0] == "temporada:":
+                temporada = " ".join(arr[1:])
+            elif arr[0] == "episodio:":
+                episodio = int(arr[1])
+            elif arr[0] == "host:":
+                host = " ".join(arr[1:])
+            elif arr[0] == "duracao:":
+                duracao = int(arr[1])
+                podcasts.append(Podcast(titulo=titulo, temporada=temporada, episodio=episodio, host=host, duracao=duracao))
             pass
-        if tipo == "Playlists":
+        elif tipo == "Playlists":
             if arr[0] == "-" and arr[1] == "nome:":
-                pass
-            pass
+                nome = " ".join(arr[2:])
+            elif arr[0] == "usuario:":
+                usuario_playlist = " ".join(arr[1:])
+            elif arr[0].startswith("itens:"):
+                conteudo = " ".join(arr[1:])
+                conteudo = conteudo.strip("[]")
+                itens = [p.strip() for p in conteudo.split(",") if p.strip()]
+                playlists.append(Playlist(nome=nome, usuario=usuario_playlist, itens=itens))
+
 
 
 def log_error(log):
@@ -77,7 +102,7 @@ def menu_inicial():
                         tentativa_login = Usuario.usuario_existente(nome_login)
                         if(tentativa_login):
                             print("Usuário válido, bem vindo")
-                            logado(tentativa_nome)
+                            logado(nome_login)
                             break
                         else:
                             print("Usuário inválido!")
@@ -126,7 +151,8 @@ def logado(nome):
         escolha = input()
 
         match escolha:
-            case "3":
+            case "2":
+                Musica.lista_titulos()
                 break
             case "9":
                 return

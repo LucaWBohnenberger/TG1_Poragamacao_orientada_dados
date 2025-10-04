@@ -2,8 +2,8 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     # Precisamos evitar imports circulares
-    from playlist import Playlist
-    from arquivo_de_midia import ArquivoDeMidia
+    from Streaming.playlist import Playlist
+    from Streaming.arquivo_de_midia import ArquivoDeMidia
 
 class Usuario:
     """ 

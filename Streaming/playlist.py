@@ -1,5 +1,5 @@
-from arquivo_de_midia import ArquivoDeMidia
-from usuario import Usuario
+from Streaming.arquivo_de_midia import ArquivoDeMidia
+from Streaming.usuario import Usuario
 
 
 class Playlist:
@@ -23,7 +23,8 @@ class Playlist:
 
     def __str__(self):
         # Precisamos printar os itens também
-        return f"Nome: {self.nome} \Usuario: {self.usuario.nome} \Reproducoes: {self.reproducoes}"
+        return f"Nome: {self.nome}\nUsuario: {self.usuario.nome}\nReproducoes: {self.reproducoes}"
+
 
 
     def __add__(self, playlist2):

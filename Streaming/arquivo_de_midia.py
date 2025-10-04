@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class ArquivoDeMidia(ABC):
     @abstractmethod
-    def __init__(self, titulo:str, duracao:int, artista:str, reproducoes:int):
+    def __init__(self, titulo:str, duracao:int, artista:str, reproducoes: int = 0):
         self.titulo = titulo
         self.duracao = duracao
         self.artista = artista
