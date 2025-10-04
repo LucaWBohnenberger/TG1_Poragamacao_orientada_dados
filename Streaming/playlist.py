@@ -63,3 +63,13 @@ class Playlist:
     @classmethod
     def ouvir_playlist(cls):
         cls.reproducoes += 1 
+
+
+    @classmethod
+    def lista_nome(cls, nome:str, playlists:list['Playlist']):
+        """ Imprime a lista de playlists atualmente inicializadas de um usuario """
+        print("Suas playlists:")
+        for playlist in playlists:
+            if playlist.usuario.nome == nome:
+                print("- " + playlist.nome)
+        return

@@ -11,71 +11,88 @@ nome = ""
 lista1 = []
 
 
-# Need to read and store an array for playlists, musicas and podcasts
-with open("config/dados.md", encoding="utf-8") as f:
-    nome = ""
-    lista1 = []
-    tipo = ""
-
-    for linha in f:
-        arr = linha.strip().split()
-        if not arr:
-            continue
-
-        if arr[0] == "#":
-            tipo = arr[1]
-            continue
-
-        if tipo == "Usuários":
-            if arr[0] == "-" and arr[1] == "nome:":
-                nome = arr[2]
-            elif arr[0].startswith("playlists:"):
-                conteudo = " ".join(arr[1:])
-                conteudo = conteudo.strip("[]")
-                lista1 = [p.strip() for p in conteudo.split(",") if p.strip()]
-                usuarios.append(Usuario(nome=nome, playlists=lista1))
-        
-        if tipo == "Músicas":
-            if arr[0] == "-" and arr[1] == "titulo:":
-                titulo = " ".join(arr[2:])
-            elif arr[0] == "artista:":
-                artista = " ".join(arr[1:])
-            elif arr[0] == "genero:":
-                genero = " ".join(arr[1:])
-            elif arr[0] == "duracao:":
-                duracao = int(arr[1])
-                musicas.append(Musica(titulo=titulo, artista=artista, genero=genero, duracao=duracao))
-            pass
-        elif tipo == "Podcasts":
-            if arr[0] == "-" and arr[1] == "titulo:":
-                titulo = " ".join(arr[2:])
-            elif arr[0] == "temporada:":
-                temporada = " ".join(arr[1:])
-            elif arr[0] == "episodio:":
-                episodio = int(arr[1])
-            elif arr[0] == "host:":
-                host = " ".join(arr[1:])
-            elif arr[0] == "duracao:":
-                duracao = int(arr[1])
-                podcasts.append(Podcast(titulo=titulo, temporada=temporada, episodio=episodio, host=host, duracao=duracao))
-            pass
-        elif tipo == "Playlists":
-            if arr[0] == "-" and arr[1] == "nome:":
-                nome = " ".join(arr[2:])
-            elif arr[0] == "usuario:":
-                usuario_playlist = " ".join(arr[1:])
-            elif arr[0].startswith("itens:"):
-                conteudo = " ".join(arr[1:])
-                conteudo = conteudo.strip("[]")
-                itens = [p.strip() for p in conteudo.split(",") if p.strip()]
-                playlists.append(Playlist(nome=nome, usuario=usuario_playlist, itens=itens))
-
-
-
 def log_error(log):
     with open("log.txt", "a") as file:
         file.write(str(log) + "\n")
     
+
+
+# Need to read and store an array for playlists, musicas and podcasts
+try:
+    with open("config/dados.md", encoding="utf-8") as f:
+        nome = ""
+        lista1 = []
+        tipo = ""
+
+        for linha in f:
+            arr = linha.strip().split()
+            if not arr:
+                continue
+
+            if arr[0] == "#":
+                tipo = arr[1]
+                continue
+
+            if tipo == "Usuários":
+                if arr[0] == "-" and arr[1] == "nome:":
+                    nome = arr[2]
+                elif arr[0].startswith("playlists:"):
+                    conteudo = " ".join(arr[1:])
+                    conteudo = conteudo.strip("[]")
+                    lista1 = [p.strip() for p in conteudo.split(",") if p.strip()]
+                    usuarios.append(Usuario(nome=nome, playlists=lista1))
+            
+            if tipo == "Músicas":
+                if arr[0] == "-" and arr[1] == "titulo:":
+                    titulo = " ".join(arr[2:])
+                elif arr[0] == "artista:":
+                    artista = " ".join(arr[1:])
+                elif arr[0] == "genero:":
+                    genero = " ".join(arr[1:])
+                elif arr[0] == "duracao:":
+                    duracao = int(arr[1])
+                    musicas.append(Musica(titulo=titulo, artista=artista, genero=genero, duracao=duracao))
+                pass
+            elif tipo == "Podcasts":
+                if arr[0] == "-" and arr[1] == "titulo:":
+                    titulo = " ".join(arr[2:])
+                elif arr[0] == "temporada:":
+                    temporada = " ".join(arr[1:])
+                elif arr[0] == "episodio:":
+                    episodio = int(arr[1])
+                elif arr[0] == "host:":
+                    host = " ".join(arr[1:])
+                elif arr[0] == "duracao:":
+                    duracao = int(arr[1])
+                    podcasts.append(Podcast(titulo=titulo, temporada=temporada, episodio=episodio, host=host, duracao=duracao))
+                pass
+            elif tipo == "Playlists":
+                if arr[0] == "-" and arr[1] == "nome:":
+                    nome = " ".join(arr[2:])
+                elif arr[0] == "usuario:":
+                    usuario_playlist = " ".join(arr[1:])
+                elif arr[0].startswith("itens:"):
+                    conteudo = " ".join(arr[1:])
+                    conteudo = conteudo.strip("[]")
+                    itens = [p.strip() for p in conteudo.split(",") if p.strip()]
+
+                    # Acha o usuario na lista de usuarios, isso é seguro já que os usuarios são todos registrados primeiro
+                    usuario_obj = None
+                    for usuario in usuarios:
+                        if usuario.nome == usuario_playlist:
+                            usuario_obj = usuario
+                            break
+
+                    # Valida se o usuário existe, se não loga o erro
+                    if usuario_obj is not None:
+                        playlists.append(Playlist(nome=nome, usuario=usuario_obj, itens=itens))
+                    else:
+                        print(f"Aviso: usuário '{usuario_playlist}' não encontrado para a playlist '{nome}'")
+                        ValueError(f"Usuário '{usuario_playlist}' não encontrado para a playlist '{nome}'.")
+
+except Exception as e:
+    log_error(e)
+
 
 def menu_inicial():
     while(True):
@@ -132,6 +149,7 @@ def menu_inicial():
 
         except Exception as e:
             log_error(e)
+            continue
 
 
 
@@ -153,21 +171,18 @@ def logado(nome):
         match escolha:
             case "2":
                 Musica.lista_titulos()
-                break
+                pass
+            case "3":
+                Podcast.lista_titulos()
+                pass
+            case "4":
+                Playlist.lista_nome(nome, playlists)
+                pass
             case "9":
                 return
             case _:
                 print(f"Escolha desconhecida: {escolha}")
                 pass
-
-
-
-
-
-
-
-
-
 
 
 
