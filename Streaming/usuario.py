@@ -26,6 +26,23 @@ class Usuario:
 
     def __str__(self):
         return f"Nome: {self.nome} \nPlaylists: {self.playlists} \nHistórico: {self.historico}\nPlaylists: {self.playlists}"
+    
+    def ouvir_midia(self, midia):
+        """
+        Adiciona uma mídia ao histórico de reprodução do usuário.
+        """
+        # A especificação  indica um atributo 'historico'
+        if not hasattr(self, 'historico'):
+            self.historico = []
+        self.historico.append(midia)
+        
+    def adicionar_playlist(self, playlist: 'Playlist'):
+        """
+        Adiciona uma playlist nova a lista de playlists do usuario
+        Args:
+            playlist (Playlist): Um conjunto de objetos de Arquivos de Midia
+        """
+        self.playlists.append(playlist)
         
 
 

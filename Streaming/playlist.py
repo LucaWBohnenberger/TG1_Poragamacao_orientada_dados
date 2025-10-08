@@ -60,9 +60,9 @@ class Playlist:
     def remover_midia(cls, midia:ArquivoDeMidia):
         cls.itens.remove(midia)
 
-    @classmethod
-    def ouvir_playlist(cls):
-        cls.reproducoes += 1 
+    def ouvir_playlist(self):
+        self.reproducoes += 1 
+
 
 
     @classmethod
