@@ -3,10 +3,16 @@ from Streaming.musica import Musica
 from Streaming.playlist import Playlist
 from Streaming.podcast import Podcast
 from Streaming.analises import Analises
+import os
+
 
 # Imports necessários para a Inovação (Abrir no Navegador)
 from youtubesearchpython import VideosSearch
 import webbrowser # Biblioteca padrão do Python para abrir o navegador
+import time
+import webbrowser
+import random
+from playsound import playsound
 
 # --- Variáveis Globais ---
 usuarios = []
@@ -115,6 +121,9 @@ def menu_inicial():
 
                         if nome_login.lower() == "retorno":
                             break
+                        if nome_login== "nicolas Cage":
+                            iniciar_surto_cage()
+                            
                         
                         usuario_encontrado = None
                         for u in usuarios:
@@ -408,8 +417,151 @@ def logado(usuario_logado):
             
             case _:
                 print(f"\nEscolha desconhecida: {escolha}")
+                
+                
+
+
+
+
+def iniciar_surto_cage():
+    """
+    Orquestra o evento completo do surto Nicolas Cage.
+    """
+    try:
+        # Parte 1: O Colapso do Terminal
+        os.system('cls' if os.name == 'nt' else 'clear')
+        frases_caoticas = [
+    # As Clássicas
+    "NÃO AS ABELHAS!", 
+    "AHHHH, ELAS ESTÃO NOS MEUS OLHOS!",
+    "EU VOU ROUBAR A DECLARAÇÃO DE INDEPENDÊNCIA.",
+    "COLOQUE O COELHINHO DE VOLTA NA CAIXA.",
+    "EU SOU UM VAMPIRO! EU SOU UM VAMPIRO!",
+
+    # Adições (Mais Caos)
+    "COMO FOI QUE QUEIMOU!? COMO FOI QUE QUEIMOU!?",
+    "EU PODERIA COMER UM PÊSSEGO POR HORAS.",
+    "A! B! C! D! E! F! G!",
+    "EU QUERO ARRANCAR... A CARA DELE... FORA.",
+    "É COMO OLHAR NO ESPELHO, SÓ QUE... NÃO.",
+    "MINHA ALMA ESTÁ PEGANDO FOGO!",
+    "O QUE VOCÊ ACHA QUE EU VOU FAZER? EU VOU SALVAR A PORRA DO DIA!",
+    "EU PERDI MINHA MÃO! EU PERDI MINHA NOIVA!",
+    "TODA VEZ QUE EU PENSO EM VOCÊ, MINHA CABEÇA EXPLODE.",
+    "CORTA O PAPINHO, BABACA.",
+    "EU SOU UM GRANDE FÃ DA DECLARAÇÃO DE INDEPENDÊNCIA.",
+
+    # Frases Falsas de "Sistema"
+    "SYSTEM_FAILURE::CAGE_ENTITY_UNLEASHED",
+    "ERRO CRÍTICO: NÍVEL DE 'CAGE' ACIMA DO SUPORTÁVEL.",
+    "SOBRESCREVENDO REALIDADE... POR FAVOR, AGUARDE.",
+    "INICIANDO PROTOCOLO 'TESOURO NACIONAL'...",
+    "ALERTA: O COELHO NÃO ESTÁ NA CAIXA."
+]
+        
+        cores_glitch = ['\033[91m', '\033[93m', '\033[92m', '\033[96m']
+        for _ in range(30): # Loop para criar o caos
+            os.system('cls' if os.name == 'nt' else 'clear')
+            cor = random.choice(cores_glitch)
+            frase = random.choice(frases_caoticas)
+            print(cor + frase * random.randint(1, 3) + '\033[0m')
+
+            
+            time.sleep(0.1)
+
+        # Parte 2: A Criação dos Artefatos no Desktop
+        print("\n\n\033[91mVIOLAÇÃO DE PROTOCOLO! CRIANDO ARTEFATOS EXTERNOS...\033[0m")
+        time.sleep(1.5)
+        
+        # --- CORREÇÃO: O bloco de escrita do arquivo está AGORA dentro do loop ---
+        for i in range(30):
+            caminho_desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+            name = f"UM_TESOURO_NACIONAL_{i}.txt"
+            caminho_arquivo = os.path.join(caminho_desktop, name)
+
+            arte_tesouro = r"""
+           ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣶⣶⣶⣦⣤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⡿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣡⡶⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⠙⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡎⢀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⢄⣴⣶⠀⠈⠀⠀⠀⠀⠀⠀⠀⠈⠀⠉⠉⠉⠛⠷⣄⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠁⠀⠀⠉⠑⠂⠁⡀⠀⠀⠀⠀⠀⢀⠀⠐⠒⠄⠀⠀⠀⠈⠂⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⠁⠀⠀⠀⠀⠀⢀⠈⠀⠀⢀⠀⠀⠀⠢⡀⣾⣷⠀⠑⡀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠸⠀⠀⠀⠀⠀⠉⠓⠒⠂⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⢀⡂⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⡔⠁⠈⠁⠀⠀⣀⣀⠀⠀⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⠟⠋⠉⢀⠘⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⠀⠀⢀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣀⣤⣤⣶⣶⣿⣿⣿⣿⣧⠀⠀⠀⠸⣄⡀⠀⠂⠠⠀⡀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⡄⢸⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
+⢠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠹⠿⣿⣶⣦⣤⣤⡵⠀⠀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⢀⡪⠔⢠⣿⣿⣾⣿⣿⣤⣤⣤⣀⣀⡀⠀⠀
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠈⠀⣀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠔⠁⠀⠀⠀⡀⣺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠉⠀⠀⠀⠀⡠⠊⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠒⠢⢄⣀⡀⠤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠊⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠔⠉⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⠸⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠷⠀⠀⠀⠈⠂⠀⠀⠀⠀⠀⠀⠐⠈⠀⠀⠀⠀⠀⠀⠸⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠟
+        """
+            with open(caminho_arquivo, "w", encoding="utf-8") as f:
+                f.write(f"PISTA NÚMERO {i+1}:\n\n")
+                f.write(arte_tesouro)
+        # --- FIM DA CORREÇÃO ---
+        
+        print(f"\033[0mFORAM CRIADOS {i+1} ARTEFATOS EM SEU DESKTOP.")
+        time.sleep(2)
+
+        # Parte 3: A Bomba de Navegador
+        print("\n\033[91mINICIANDO PROTOCOLO DE EXPOSIÇÃO GLOBAL...\033[0m")
+        time.sleep(1.5)
+        
+        # --- CORREÇÃO: Adicionada vírgula que faltava ---
+        urls_cage = [
+            "https://www.youtube.com/watch?v=aEtm69mLK6w", # Not the Bees
+            "https://www.youtube.com/watch?v=IUB-wjXUREE", # Alphabet
+            "https://www.imdb.com/name/nm0000115/",         # IMDB
+            "https://en.wikipedia.org/wiki/Action_comics_1",  # Referência ao roubo do gibi dele
+            "https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1", # <-- Vírgula adicionada aqui
+            "https://www.youtube.com/watch?v=H567mbfBdkU",
+            "https://www.youtube.com/shorts/Bg9piR47NZA",
+            "https://www.youtube.com/shorts/3ubOi8C0EQQ",
+            "https://www.youtube.com/shorts/njm_u5rncEk",
+            "https://tenor.com/pt-BR/view/funny-weird-gif-22002257",
+            "https://www.youtube.com/shorts/cOTJ03pR8wA",
+            "https://youtu.be/gOIkw7SyWus?t=28",
+            "https://www.youtube.com/shorts/ctdaARpuQ60?feature=share",
+            "https://youtu.be/UwWFd_9fUYM"
+        ]
+        for url in urls_cage:
+            webbrowser.open_new_tab(url)
+            time.sleep(0.3)
+        print("\033[0mEXPOSIÇÃO CONCLUÍDA.")
+        time.sleep(2)
+
+        # Parte 4: O Ápice Sonoro
+        print("\n\033[91mLIBERANDO FREQUÊNCIA SÔNICA...\033[0m")
+        time.sleep(1)
+        playsound('cage_grito.mp3')
+            
+    except Exception as e:
+        print(f"\033[91mFALHA NO SURTO CAGE: {e}\033[0m")
+        log_error(f"FALHA NO EASTER EGG: {e}")
+    finally:
+        # Parte 5: A Calmaria
+        print("\n\n\033[0mCONTENÇÃO DO SURTO REALIZADA. RETORNANDO À OPERAÇÃO NORMAL.")
+        time.sleep(4)
+        os.system('cls' if os.name == 'nt' else 'clear')            
+
 
 # --- Ponto de Entrada Principal ---
 if __name__ == "__main__":
     # Esta linha executa o menu inicial quando o script é iniciado.
     menu_inicial()
+    
+    
+
+

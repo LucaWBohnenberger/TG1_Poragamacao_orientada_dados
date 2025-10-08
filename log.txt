@@ -9,3 +9,18 @@ name 'usuario_logado' is not defined
 'Playlist' object has no attribute 'ouvi_playlist'
 'Playlist' object has no attribute 'reproduzir'
 Música não encontrada: Ola
+Nome não existente na base de dados
+Nome não existente na base de dados
+Nome não existente na base de dados
+Nome não existente na base de dados
+Nome não existente na base de dados
+FALHA NO EASTER EGG: 
+    Error 275 for command:
+        open cage_grito.mp3
+    O arquivo especificado não foi encontrado. Verifique se o caminho e o nome do arquivo estão corretos.
+Nome não existente na base de dados
+FALHA NO EASTER EGG: 
+    Error 263 for command:
+        open cage_grito.mp3
+    O dispositivo especificado não está aberto ou o MCI não o reconhece.
+Nome não existente na base de dados
