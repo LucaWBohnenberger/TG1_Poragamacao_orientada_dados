@@ -2,6 +2,7 @@ from Streaming.usuario import Usuario
 from Streaming.musica import Musica
 from Streaming.playlist import Playlist
 from Streaming.podcast import Podcast
+from Streaming.analises import Analises
 
 # Imports necessários para a Inovação (Abrir no Navegador)
 from youtubesearchpython import VideosSearch
@@ -198,6 +199,7 @@ def logado(usuario_logado):
                         raise ValueError(f"Música não encontrada: {nome_musica}")
 
                     print(f"\nBuscando '{musica_encontrada.titulo}' de '{musica_encontrada.artista}' no YouTube...")
+                    print(musica_encontrada)
                     
                     query = f"{musica_encontrada.titulo} {musica_encontrada.artista}"
                     search = VideosSearch(query, limit=1)
@@ -331,7 +333,74 @@ def logado(usuario_logado):
                 except Exception as e:
                     print(f"\nOcorreu um erro ao criar a playlist: {e}")
                     log_error(e)
+            
+            case "7":
+                
+                        
+                temp_list = []
+                temp_list_mostrar = []
                     
+                # Adicionar Músicas
+                while True:
+                    print("Quais playlists você gostaria de concatenar? (digite proximo para proseguir)")
+                    for p in playlists:
+                        if p.usuario.nome == usuario_logado.nome:
+                            print(f"- {p.nome}")
+                    
+                    temp_input = input("Playlist: ")
+                    if temp_input.lower() == 'proximo': break
+                    if temp_input in temp_list_mostrar:
+                        print("Essa playlist já foi adicionada.")
+                        continue
+                    
+                    for p in playlists:
+                        if p.usuario.nome == usuario_logado.nome and temp_input == p.nome:
+                            temp_list.append(p)
+                            temp_list_mostrar.append(temp_input)
+                    
+                    
+                    print("Playlists:", temp_list_mostrar)
+                
+                lista_midia = []
+                for playlist in temp_list:
+                    for midia in playlist.itens:
+                        lista_midia.append(midia)
+                lista_midia = list(set(lista_midia))
+                
+                print("\nQual o nome da nova playlist?")
+                nome_playlist = input("Nome: ")
+                new_playlist = Playlist(nome_playlist, usuario_logado, lista_midia)
+                playlists.append(new_playlist)
+                usuario_logado.adicionar_playlist(new_playlist)
+                
+            case "8":
+                print("\n--- Gerando Relatório de Análises ---")
+
+                # Top 3 Músicas
+                top_3 = Analises.top_musicas_reproduzidas(musicas, 3)
+                print("\nTop 3 Músicas Mais Ouvidas:")
+                for i, musica in enumerate(top_3):
+                    print(f"{i+1}. {musica.titulo} ({musica.reproducoes} plays)")
+
+                # Playlist Mais Popular
+                popular = Analises.playlist_mais_popular(playlists)
+                if popular:
+                    print(f"\nPlaylist Mais Popular: {popular.nome} ({popular.reproducoes} plays)")
+
+                # Usuário Mais Ativo
+                ativo = Analises.usuario_mais_ativo(usuarios)
+                if ativo:
+                    print(f"\nUsuário Mais Ativo: {ativo.nome} ({len(ativo.historico)} faixas ouvidas)")
+
+                # Média de Avaliações
+                medias = Analises.media_avaliacoes(musicas)
+                print("\nMédia de Avaliações (0-5):")
+                for titulo, media in medias.items():
+                    print(f"- {titulo}: {media:.2f}")
+
+                # Total de Reproduções
+                total_plays = Analises.total_reproducoes(usuarios)
+                print(f"\nTotal de Reproduções no Sistema: {total_plays}")
             
             
             case "9":

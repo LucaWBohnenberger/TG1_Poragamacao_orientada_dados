@@ -10,6 +10,14 @@ class Musica(ArquivoDeMidia):
        self.avaliacoes = []
        Musica.titulos.append(self.titulo)
        
+    def __str__(self):
+        return (f"Titulo: {self.titulo}\n"
+                f"Artista: {self.artista}\n"
+                f"Gênero: {self.genero}\n"
+                f"Duração: {self.duracao} segundos\n"
+                f"Reproduções: {self.reproducoes}\n"
+                f"Avaliações: {self.avaliacoes if self.avaliacoes else 'Nenhuma avaliação'}")
+       
     def avaliar(self, nota):
         if isinstance(nota, int):
             if nota >= 0 and nota <=5:
