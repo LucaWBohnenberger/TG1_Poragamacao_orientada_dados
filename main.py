@@ -12,7 +12,6 @@ import webbrowser # Biblioteca padrão do Python para abrir o navegador
 import time
 import webbrowser
 import random
-from playsound import playsound
 
 # --- Variáveis Globais ---
 usuarios = []
