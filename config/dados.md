@@ -5,6 +5,9 @@
 
 - nome: Ana  
     playlists: [Favoritas, Treino]
+
+- nome: Ana  
+    playlists: [Favoritas, Treino]
     
 - nome: Carlos  
     playlists: [Relax]
@@ -69,6 +72,10 @@
 ---
 
 # Playlists
+
+- nome: Favoritas  
+    usuario: Ana  
+    itens: [Bohemian Rhapsody, Shape of You, Lose Yourself]
 
 - nome: Favoritas  
     usuario: Ana  

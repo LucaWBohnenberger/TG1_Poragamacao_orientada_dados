@@ -1,0 +1,24 @@
+Relatório de Análises do Sistema de Streaming
+Gerado em: 2025-10-09 23:27:37
+==================================================
+
+--- Top 3 Músicas Mais Ouvidas ---
+1. Rolling in the Deep - Adele (6 reproduções)
+2. Fur Elise - Beethoven (5 reproduções)
+3. Lose Yourself - Eminem (4 reproduções)
+
+--- Playlist Mais Popular ---
+'Luca' por Ana (5 reproduções)
+
+--- Usuário Mais Ativo ---
+Ana (21 faixas ouvidas)
+
+--- Média de Avaliações (0-5) ---
+- Bohemian Rhapsody: 0.00
+- Shape of You: 0.00
+- Lose Yourself: 0.00
+- Fur Elise: 0.00
+- Rolling in the Deep: 0.00
+
+--- Estatísticas Gerais ---
+Total de reproduções no sistema: 21

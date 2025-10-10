@@ -1,0 +1,8 @@
+[2025-10-09 23:21:12] ValueError: Usuário duplicado encontrado no arquivo 'config/dados.md': 'Ana'. O usuário não foi adicionado novamente.
+[2025-10-09 23:21:12] ValueError: Playlist duplicada para o usuário 'Ana' no arquivo 'config/dados.md': 'Favoritas'. A playlist não foi carregada novamente.
+[2025-10-09 23:22:02] ValueError: Usuário duplicado encontrado no arquivo 'config/dados.md': 'Ana'. O usuário não foi adicionado novamente.
+[2025-10-09 23:22:02] ValueError: Playlist duplicada para o usuário 'Ana' no arquivo 'config/dados.md': 'Favoritas'. A playlist não foi carregada novamente.
+[2025-10-09 23:25:39] ValueError: Usuário duplicado encontrado no arquivo 'config/dados.md': 'Ana'. O usuário não foi adicionado novamente.
+[2025-10-09 23:25:39] ValueError: Playlist duplicada para o usuário 'Ana' no arquivo 'config/dados.md': 'Favoritas'. A playlist não foi carregada novamente.
+[2025-10-09 23:27:25] ValueError: Escolha de menu desconhecida no modo logado: proximo
+[2025-10-09 23:28:34] ValueError: Você já possui uma playlist com o nome 'Luca'. Por favor, escolha outro nome para a playlist concatenada.
